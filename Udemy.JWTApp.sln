@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyJWTApp.Back", "UdemyJWTApp.Back\UdemyJWTApp.Back.csproj", "{ADDB519E-973D-449C-A981-D04B2F56D54C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADDB519E-973D-449C-A981-D04B2F56D54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDB519E-973D-449C-A981-D04B2F56D54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDB519E-973D-449C-A981-D04B2F56D54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDB519E-973D-449C-A981-D04B2F56D54C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2887495-CA11-4D16-9B0C-7145998EEFC2}
+	EndGlobalSection
+EndGlobal
