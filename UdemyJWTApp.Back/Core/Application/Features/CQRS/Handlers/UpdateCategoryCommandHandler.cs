@@ -19,7 +19,7 @@ namespace UdemyJWTApp.Back.Core.Application.Features.CQRS.Handlers
             var updatedEntity = await _repository.GetByIdAsync(request.Id);
             if(updatedEntity != null)
             {
-            updatedEntity.Definition = request.Definition;
+            updatedEntity.Defination = request.Definition;
             await _repository.UpdateAsync(updatedEntity);
 
             }

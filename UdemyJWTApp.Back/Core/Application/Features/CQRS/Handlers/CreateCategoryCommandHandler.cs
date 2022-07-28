@@ -13,7 +13,7 @@ namespace UdemyJWTApp.Back.Core.Application.Features.CQRS.Handlers
         {
             await _repository.CreateAsync(new Category
             {
-                Definition = request.Definition
+                Defination = request.Definition
             });
             return Unit.Value;
             
