@@ -1,9 +1,13 @@
 using AutoMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 using UdemyJWTApp.Back.Core.Application.Interfaces;
 using UdemyJWTApp.Back.Core.Application.Mappings;
+using UdemyJWTApp.Back.Infrastructure.Tools;
 using UdemyJWTApp.Back.Persistence.Context;
 using UdemyJWTApp.Back.Persistence.Repositories;
 
@@ -34,6 +38,28 @@ builder.Services.AddAutoMapper(opt =>
     });
 });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.RequireHttpsMetadata = false;
+    opt.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidAudience = JwtTokenSettings.Audience,
+        ValidIssuer = JwtTokenSettings.Issuer,
+        ClockSkew = TimeSpan.Zero,
+        ValidateLifetime = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtTokenSettings.Key)),
+        ValidateIssuerSigningKey = true
+    };
+});
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("GlobalCors", config =>
+    {
+        config.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,6 +68,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("GlobalCors");
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
